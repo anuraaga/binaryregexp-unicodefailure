@@ -34,9 +34,6 @@ func TestUnicode(t *testing.T) {
 					t.Errorf("MatchString(%q) = %v, want %v", tt.input, !tt.want, tt.want)
 				}
 			})
-		})
-
-		t.Run(fmt.Sprintf("%s/%s", tt.pattern, tt.input), func(t *testing.T) {
 			t.Run("binaryregexp", func(t *testing.T) {
 				re := binaryregexp.MustCompile(tt.pattern)
 				if re.MatchString(tt.input) != tt.want {
